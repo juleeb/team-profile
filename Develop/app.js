@@ -14,34 +14,36 @@ const employee = [];
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+const questions = [{
+    type: "input",
+    message: "What is employee's name?",
+    name: "name"
+},
+{
+    type: "input",
+    message: "What is employee's id number?",
+    name: "id"
+},
+{
+    type: "input",
+    message: "What is employee's email?",
+    name: "email"
+},
+{
+    type: "list",
+    message: "What is employee's role?",
+    name: "role",
+    choices: [
+        "Manager",
+        "Engineer",
+        "Intern"
+    ]
+}
+]
+
 function employeeQuestions() {
-    inquirer.prompt([
-        {
-            type: "input",
-            message: "What is employee's name?",
-            name: "name"
-        },
-        {
-            type: "input",
-            message: "What is employee's id number?",
-            name: "id"
-        },
-        {
-            type: "input",
-            message: "What is employee's email?",
-            name: "email"
-        },
-        {
-            type: "list",
-            message: "What is employee's role?",
-            name: "role",
-            choices: [
-                "Manager",
-                "Engineer",
-                "Intern"
-            ]
-        }
-    ]).then(response => {
+    inquirer.prompt(questions)
+    .then(response => {
         let employeeRole = response.role;
         
         if (employeeRole === "Manager") {
@@ -61,7 +63,7 @@ function employeeQuestions() {
                     ]
                 }
             ]).then(function(employeeInfo) {
-                var newMember = new Manager(employeeInfo.name, employeeInfo.id, employeeInfo.email, employeeInfo.officeNumber);
+                var newMember = new Manager(response.name, response.id, response.email, employeeInfo.officeNumber);
                 employee.push(newMember);
                 if (employeeInfo.addAnother === "Yes") {
                     employeeQuestions();
@@ -89,13 +91,14 @@ function employeeQuestions() {
                     ]
                 }
             ]).then(function(employeeInfo) {
-                var newMember = new Engineer(employeeInfo.name, employeeInfo.id, employeeInfo.email, employeeInfo.github);
+                var newMember = new Engineer(response.name, response.id, response.email, employeeInfo.github);
                 employee.push(newMember);
                 if (employeeInfo.addAnother === "Yes") {
                     employeeQuestions();
                 }
                 else {
                     buildHTML();
+                    console.log("success");
                 }
             })
         }
@@ -116,13 +119,14 @@ function employeeQuestions() {
                     ]
                 }
             ]).then(function(employeeInfo) {
-                var newMember = new Intern(employeeInfo.name, employeeInfo.id, employeeInfo.email, employeeInfo.school);
+                var newMember = new Intern(response.name, response.id, response.email, employeeInfo.school);
                 employee.push(newMember);
                 if (employeeInfo.addAnother === "Yes") {
                     employeeQuestions();
                 }
                 else {
                     buildHTML();
+                    console.log("success");
                 }
             })
         }
