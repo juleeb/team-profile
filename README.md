@@ -11,7 +11,7 @@ Commandline Instruction
 
 Final Page 
 
-<img src="image/command.gif" width="600" height="300">
+<img src="image/mainpage.png" width="500" height="300">
 
 Description of project:
 
@@ -31,6 +31,19 @@ Description of project:
 -NPM
     
     -inquirer
+
+Test:
+
+npm run test to - 
+ develop/test/
+    
+    *Employee.test.js
+    
+    *Engineer.test.js
+    
+    *Intern.test.js
+    
+    *Manager.test.js
 
 Deployed Link:
 
