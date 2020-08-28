@@ -5,7 +5,7 @@ Command line application for software engineering team to input manager and team
 
 Video Walkthrough:
 
-<video src="process.mp4" width="320" height="200" controls preload></video>
+<a href="process.mp4">Video Link</a>
 
 Image preview:
 
