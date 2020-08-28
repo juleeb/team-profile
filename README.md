@@ -3,6 +3,10 @@ About the project:
 
 Command line application for software engineering team to input manager and team member's contact infomations. 
 
+Video Walkthrough:
+
+<video src="process.mp4" width="320" height="200" controls preload></video>
+
 Image preview:
 
 Commandline Instruction
